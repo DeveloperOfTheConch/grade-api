@@ -29,7 +29,7 @@ public final class GetAverageGradeUseCase {
         //              your team members. Hint: what methods are in the GradeDataBase interface?
 
         if (count == 0) {
-            return 0;
+            return 1;
         }
         return sum / count;
     }
