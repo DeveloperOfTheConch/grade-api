@@ -1,6 +1,7 @@
 package usecase;
 
 import api.GradeDataBase;
+import api.MongoGradeDataBase;
 import entity.Grade;
 import entity.Team;
 
@@ -28,6 +29,11 @@ public final class GetAverageGradeUseCase {
         // TODO Task 3a: Complete the logic of calculating the average course grade for
         //              your team members. Hint: what methods are in the GradeDataBase interface?
 
+        String[] members = team.getMembers();
+        for (String m : members) {
+            sum += gradeDataBase.getGrade(m, course).getGrade();
+            count += 1;
+        }
         if (count == 0) {
             return 1;
         }
